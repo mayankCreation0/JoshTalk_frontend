@@ -1,0 +1,24 @@
+.todo-list {
+  margin: 0 auto;
+  padding: 1rem;
+  max-width: 800px;
+}
+
+.todo-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.todo-item h2 {
+  margin: 0;
+}
+
+.todo-item p {
+  margin: 0 0 1rem 0;
+}
+
+.todo-item .created-by {
+  color: #999;
+}
