@@ -4,6 +4,7 @@ function Appcontext({ children }) {
     const [authstate, setAuthstate] = React.useState(false);
     const [store, setStore] = React.useState([]);
     const [user, setUser] = React.useState({});
+    const [todos, setTodos] = React.useState([]);
     const fnuser = (value) => {
         setUser(value);
     }
@@ -17,7 +18,7 @@ function Appcontext({ children }) {
         setAuthstate(false);
     }
     return (
-        <context.Provider value={{ authstate, fnauthstate, falseAuthState, fnstore, store, user, fnuser }}>
+        <context.Provider value={{ authstate, fnauthstate, falseAuthState, fnstore, store, user, fnuser ,setTodos,todos}}>
             {children}
         </context.Provider>
     );

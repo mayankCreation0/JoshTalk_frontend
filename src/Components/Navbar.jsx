@@ -22,10 +22,10 @@ const Navbar = () => {
                 </div>
                 <ul className={click ? "nav-options active" : "nav-options"}>
                     <li className="option" onClick={closeMobileMenu}>
-                        <Link to={`/createpage`}>Create Task</Link>
+                        <Link to="/home">Home</Link>
                     </li>
                     <li className="option" onClick={closeMobileMenu}>
-                        <Link to="/dashboard">Dashboard</Link>
+                        <Link to={`/createpage`}>Create Task</Link>
                     </li>
                     <li className="option mobile-option" onClick={closeMobileMenu}>
                         <Link to="" className="sign-up">
