@@ -19,6 +19,7 @@ import Cookies from 'universal-cookie';
 // import png from ' ../assets/Gmail_Logo_16px.png';
 
 const LoginPage = () => {
+    const { fnstore } = useContext(context)
     const cookies = new Cookies();
     const { authstate, fnauthstate, falseAuthState } = useContext(context);
     const [input, setInput] = useState({
@@ -58,6 +59,8 @@ const LoginPage = () => {
                     duration: 4000,
                     isClosable: true,
                 })
+                fnstore(res.data.user)
+                console.log("res",res.data.user);
                 fnauthstate();
             }
             else {

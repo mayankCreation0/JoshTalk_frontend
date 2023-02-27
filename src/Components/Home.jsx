@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import {  useToast } from '@chakra-ui/react';
 import Cookies from 'universal-cookie';
 import '../Style/Home.css'
 import { Link } from 'react-router-dom';
+import { context } from '../AuthContext/context';
 
 const Home = () => {
+    const {store} = useContext(context)
     const cookies = new Cookies();
     const [loading, setLoading] = useState(true);
     const [todos, setTodos] = useState([]);
@@ -27,6 +29,8 @@ const Home = () => {
                 console.log(response.data)
                 setTodos(response.data)
                 setLoading(false);
+                console.log(store)
+                // console.log(object)
             })
             .catch((error) => {
                 toast({
@@ -49,11 +53,14 @@ const Home = () => {
             <h1>Todo List</h1>
             <ul>
                 {todos.map(todo => (
-                    <Link to={`/tododetail/${todo._id}`}><li className="todo-item" key={todo._id}>
+                    <>
+                    <li className="todo-item" key={todo._id}>
                         <h2>{todo.name}</h2>
                         <p>{todo.description}</p>
-                        <p className="created-by">Created by: {todo.createdBy}</p>
-                    </li></Link>
+                        <p className="created-by">Created by: {todo.createdBy.username}</p>
+                    </li>
+                        {store._id === todo.createdBy._id ? <Link to={`/tododetail/${todo._id}`}><button>show detail</button></Link> : null}
+                   </>
                 ))}
             </ul>
         </div>

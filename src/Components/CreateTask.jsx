@@ -8,13 +8,16 @@ const CreateTask = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const response = await axios.post('https://josh-talks-backend.vercel.app/todo/add', {
-            name,
-            description,
-        });
-        console.log(response.data);
+        try {
+            const response = await axios.post('http://localhost:8080/todo/add', {
+                name,
+                description,
+            });
+            console.log(response.data);
+        } catch (error) {
+            console.log(error)
+        } 
     };
-
     return (
         <form className="todo-form" onSubmit={handleSubmit}>
             <label>
@@ -41,6 +44,5 @@ const CreateTask = () => {
         </form>
     );
 };
-
 export default CreateTask;
 
