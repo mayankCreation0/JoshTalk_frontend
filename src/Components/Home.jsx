@@ -112,7 +112,7 @@ const Home = () => {
                         <div className="todo-item" key={todo._id} style={{ backgroundColor: "hsl(212, 56%, 95%)" }}>
                             <h2>Todo Title : {todo.name}</h2>
                             <p>Todo Description : {todo.description}</p>
-                            <p className="created-by">Created by: {todo.createdBy.username}</p>
+                            <p className="created-by">Created by: {todo.createdBy.username}{store._id === todo.createdBy._id ?<span style={{textDecoration:"italic", fontSize:"13px"}}>(you)</span>:null}</p>
                             {store._id === todo.createdBy._id ?
                                 <div className='hover-button-home' >
                                     <div style={{ display: "flex", margin: "auto", justifyContent: "center", gap: "5px" }}>
